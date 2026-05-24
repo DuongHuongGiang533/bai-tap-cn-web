@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dự Án Khởi Nghiệp</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* CSS đơn giản để chỉnh khoảng cách giữa các phần */
+        body { padding-top: 70px; }
+        .phan-bai-tap { padding: 50px 0; border-bottom: 2px solid #dee2e6; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Menu Bài Làm:</a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="#trang-chu">1. Trang Chủ</a>
+                <a class="nav-link" href="#trang-quan-ly">2. Trang Quản Lý</a>
+                <a class="nav-link" href="#trang-debug">3. Trang Debug</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="trang-chu" class="container phan-bai-tap">
+        <div class="p-5 mb-4 bg-light rounded-3 border text-center">
+            <h1 class="display-5 fw-bold text-success">TẦM NHÌN KHỞI NGHIỆP</h1>
+            <p class="fs-4 text-muted">Sáng tạo giá trị mới, ứng dụng công nghệ thực tế để giải quyết các vấn đề nhức nhối của xã hội.</p>
+        </div>
+
+        <h3 class="mb-3 text-secondary">Các Ý Tưởng Đột Phá</h3>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Ý tưởng 1: AI cho Giáo dục</h5>
+                        <p class="card-text">Xây dựng hệ thống trợ lý ảo hỗ trợ sinh viên ôn thi các môn đại cương hiệu quả hơn.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm border-primary">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Ảnh hoạt động nhóm">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">Ý tưởng 2: Kinh Doanh Thực Chiến</h5>
+                        <p class="card-text">Hình ảnh minh chứng em tham gia làm việc nhóm, khảo sát thị trường và bán hàng thực tế.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Ý tưởng 3: Sống Xanh</h5>
+                        <p class="card-text">Ứng dụng thu gom và tái chế rác thải nhựa, đổi lấy điểm thưởng tiêu dùng cho sinh viên.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="trang-quan-ly" class="container phan-bai-tap">
+        <h2 class="text-center text-primary mb-4">Trang Quản Lý Dự Án</h2>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="p-4 border rounded bg-light">
+                    <h4 class="mb-3">Form Nhập Ý Tưởng</h4>
+                    <form id="formKhoiNghiep">
+                        <div class="mb-3">
+                            <label class="form-label">Tên ý tưởng:</label>
+                            <input type="text" id="txtTen" class="form-control" required placeholder="Nhập tên ý tưởng...">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Lĩnh vực:</label>
+                            <input type="text" id="txtLinhVuc" class="form-control" required placeholder="Nhập lĩnh vực...">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Ngân sách dự kiến (Triệu VNĐ):</label>
+                            <input type="number" id="txtNganSach" class="form-control" required placeholder="Ví dụ: 10, 20...">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Thêm Vào Bảng</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <h4 class="mb-3">Danh Sách Ý Tưởng Đã Nhập</h4>
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Tên Ý Tưởng</th>
+                            <th>Lĩnh Vực</th>
+                            <th>Ngân Sách Dự Kiến</th>
+                        </tr>
+                    </thead>
+                    <tbody id="danhSachDuAn">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="trang-debug" class="container phan-bai-tap mb-5">
+        <h2 class="text-danger mb-3">Trang Debug Lỗi Code</h2>
+        
+        <div class="bg-warning p-3 rounded mb-3 text-dark">
+            <strong>Mã gốc bị lỗi từ đề bài:</strong>
+            <pre class="mb-0 mt-2">
+function updateClock() {
+    let now = new Date();
+    let timeStr = now.getHours + ":" + now.getMinutes + ":" + now.getSeconds;
+    document.getElementById("clock").innerHTML = timeStr;
+}
+setInterval(updateClock(), 1000);</pre>
+        </div>
+
+        <div class="card p-4 text-center my-4 bg-dark text-white" style="max-width: 400px; margin: 0 auto;">
+            <h5>ĐỒNG HỒ SAU KHI SỬA LỖI:</h5>
+            <div id="clock" class="display-4 fw-bold text-warning">00:00:00</div>
+        </div>
+
+        <div class="bg-light p-3 border rounded">
+            <h5>Giải thích các lỗi sai đã tìm thấy:</h5>
+            <ul>
+                <li><strong>Lỗi 1:</strong> Các hàm <code>now.getHours</code>, <code>now.getMinutes</code>, <code>now.getSeconds</code> thiếu cặp dấu ngoặc tròn <code>()</code>. Vì đây là các phương thức của đối tượng Date, phải thêm <code>()</code> thì mới lấy được giá trị thời gian.</li>
+                <li><strong>Lỗi 2:</strong> Trong hàm <code>setInterval(updateClock(), 1000)</code>, việc truyền vào <code>updateClock()</code> có dấu ngoặc sẽ làm hàm chạy ngay lập tức một lần duy nhất rồi dừng lại. Cách đúng là bỏ dấu ngoặc đi, chỉ truyền tên hàm <code>updateClock</code> để nó tự lặp lại sau mỗi 1 giây.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        // =========================================================
+        // CẬU THAY SỐ NÀY THÀNH SỐ CUỐI CỦA MÃ SỐ SINH VIÊN CỦA CẬU NHA!
+        // =========================================================
+        let soCuoiMasanVien = 5; // Ví dụ số cuối là số lẻ
+
+
+
+        // [LOGIC 1]: SỬA LỖI ĐỒNG HỒ CHẠY THỜI GIAN
+        function updateClock() {
+            let now = new Date();
+            
+            // Sửa lỗi 1: Thêm () vào cuối các hàm lấy giờ, phút, giây
+            let gio = now.getHours();
+            let phut = now.getMinutes();
+            let giay = now.getSeconds();
+            
+            // Nối chuỗi cơ bản cho đồng hồ hiển thị
+            let timeStr = gio + ":" + phut + ":" + giay;
+            
+            document.getElementById("clock").innerHTML = timeStr;
+        }
+        // Sửa lỗi 2: Bỏ dấu ngoặc () ở tên hàm truyền vào setInterval
+        setInterval(updateClock, 1000);
+
+
+
+        // [LOGIC 2]: XỬ LÝ FORM VÀ CHÈN VÀO BẢNG KHỞI NGHIỆP
+        document.getElementById("formKhoiNghiep").onsubmit = function(event) {
+            // Chặn trang web bị load lại khi bấm nút gửi
+            event.preventDefault();
+            
+            // Lấy giá trị người dùng vừa gõ vào các ô
+            let tenYTuong = document.getElementById("txtTen").value;
+            let linhVucYTuong = document.getElementById("txtLinhVuc").value;
+            let nganSachYTuong = document.getElementById("txtNganSach").value;
+            
+            // Ép kiểu chữ thành số để đem đi so sánh
+            let nganSachSo = Number(nganSachYTuong);
+            
+            // Tính năng bổ sung: Nếu ngân sách lớn hơn 15 triệu thì báo lỗi
+            if (nganSachSo > 15) {
+                alert("Dự án cần có lộ trình gọi vốn rõ ràng");
+            }
+            
+            // Tạo một hàng mới cho bảng bằng cách cộng chuỗi HTML đơn giản
+            let dongMoi = "<tr>" +
+                            "<td>" + tenYTuong + "</td>" +
+                            "<td>" + linhVucYTuong + "</td>" +
+                            "<td>" + nganSachYTuong + " Triệu VNĐ</td>" +
+                          "</tr>";
+            
+            // Lấy phần thân của bảng ra
+            let bang = document.getElementById("danhSachDuAn");
+            
+            // Kiểm tra mã số sinh viên là chẵn hay lẻ bằng phép chia lấy dư % 2
+            if (soCuoiMasanVien % 2 !== 0) {
+                // Nếu là SỐ LẺ: Chèn dòng mới lên ĐẦU bảng
+                bang.innerHTML = dongMoi + bang.innerHTML;
+            } else {
+                // Nếu là SỐ CHẴN: Chèn dòng mới xuống CUỐI bảng
+                bang.innerHTML = bang.innerHTML + dongMoi;
+            }
+            
+            // Xóa sạch chữ trong các ô nhập sau khi đã thêm xong để nhập tiếp
+            document.getElementById("formKhoiNghiep").reset();
+        };
+    </script>
+
+</body>
+</html>
